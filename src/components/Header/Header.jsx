@@ -80,7 +80,10 @@ const Header = () => {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {
-              <Link to={isLoggedIn?"/employee-home-page":"/"} style={{ color: "white", textDecoration: "none" }}>
+              <Link to={
+                !isLoggedIn ? "/" : JSON.parse(localStorage.getItem("userName")) === "admin" ? "/hr-home-page" :  "/employee-home-page" 
+              } 
+              style={{ color: "white", textDecoration: "none" }}>
                 SwiftExit
               </Link>
             }
